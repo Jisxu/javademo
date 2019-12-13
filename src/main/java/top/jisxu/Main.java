@@ -1,15 +1,15 @@
 package top.jisxu;
 
-import java.util.Arrays;
-import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        String word = "祥瑞生辉三羊献瑞三羊生瑞气";
-        Map<String, Integer> map = Arrays.stream(word.split(""))
-                .map(String::toUpperCase)
-                .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum));
-        System.out.println(map);
+        String str = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
+                .map(i -> i * i)
+                .filter(i -> i % 2 != 0)
+                .map(i -> "" + i)
+                .collect(Collectors.joining("|"));
+        System.out.println(str);
     }
 }
